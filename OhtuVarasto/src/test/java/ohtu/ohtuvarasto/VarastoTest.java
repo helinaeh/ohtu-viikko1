@@ -75,4 +75,81 @@ public class VarastoTest {
         varasto = new Varasto(-1,-1);
         varasto.toString();
     }
+    
+    @Test
+    public void lisaaminenEiToimiJosMaaraNeg() {
+        varasto = new Varasto(3, 1);
+        varasto.lisaaVarastoon(-2);
+        assertEquals(1, varasto.getSaldo(), vertailuTarkkuus);
+        //assertEquals(mitäPitäisiOlla, mitäSaadaan, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void josLisaysMaaraOnSuurempiKuinTila() {
+        varasto = new Varasto(3,1);
+        varasto.lisaaVarastoon(10);
+        assertEquals(3, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void josLisaysMaaraPienempiKuinTila() {
+        varasto = new Varasto(10,4);
+        varasto.lisaaVarastoon(2);
+        assertEquals(6, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void JosLisaysMaaraTayttaaTasanTilan() {
+        varasto = new Varasto(10,4);
+        varasto.lisaaVarastoon(6);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void JosOttoMaaraOnPienempiKuinNolla() {
+        varasto = new Varasto(10,4);
+        varasto.otaVarastosta(-5);
+        assertEquals(4, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void JosOttoMaaraOnSuurempiKuinSaldo() {
+        varasto = new Varasto(10,4);
+        varasto.otaVarastosta(7);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void JosOttoPienempiKuinSaldo() {
+        varasto = new Varasto(10,5);
+        varasto.otaVarastosta(2);
+        assertEquals(3, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void JosOttoTasanSaldo() {
+        varasto = new Varasto(10,4);
+        varasto.otaVarastosta(4);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    //    
+//    @Test
+//    public void asd() {
+//        assertEquals();
+//    }
+//    
+//    @Test
+//    public void asd() {
+//        assertEquals();
+//    }
+    //    
+//    @Test
+//    public void asd() {
+//        assertEquals();
+//    }
+//    
+//    @Test
+//    public void asd() {
+//        assertEquals();
+//    }
 }
