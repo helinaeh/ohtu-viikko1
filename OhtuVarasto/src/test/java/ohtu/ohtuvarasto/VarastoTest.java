@@ -130,7 +130,7 @@ public class VarastoTest {
     public void JosOttoTasanSaldo() {
         varasto = new Varasto(10,4);
         varasto.otaVarastosta(4);
-        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(12, varasto.getSaldo(), vertailuTarkkuus); //rikottu testi, pitäisi olla 0
     }
     //    
 //    @Test
